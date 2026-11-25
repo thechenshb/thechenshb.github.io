@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天美星空_果冻制品厂|以星为料,凝一枚可食的银河</title>
+<meta name="description" content="天美星空果冻制品厂，专注果冻研发与生产二十余年，以星空为灵感打造星空果冻、水晶果冻、功能性果冻等系列产品，服务商超、餐饮、电商与定制品牌客户。">
+<style>
+:root{
+  --night:#0a0e2a;
+  --night2:#121a44;
+  --deep:#1b2761;
+  --violet:#6a4bd6;
+  --violet2:#9a7bff;
+  --cyan:#48e0d8;
+  --pink:#ff7bb0;
+  --gold:#ffd479;
+  --cream:#f5f1ff;
+  --line:rgba(154,123,255,.22);
+  --line2:rgba(72,224,216,.18);
+  --shadow:0 24px 60px -20px rgba(8,12,42,.75);
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  background:var(--night);
+  color:var(--cream);
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+::selection{background:var(--violet2);color:#05081f}
+
+/* ===== 星空背景 ===== */
+.skybg{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 8%,rgba(106,75,214,.34),transparent 70%),
+    radial-gradient(ellipse 50% 40% at 12% 22%,rgba(72,224,216,.16),transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 105%,rgba(255,123,176,.14),transparent 70%),
+    linear-gradient(180deg,#070a22 0%,#0a0e2a 45%,#0c1130 100%);
+}
+.stars{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.stars i{
+  position:absolute;display:block;border-radius:50%;
+  background:#fff;opacity:.7;
+  animation:twinkle linear infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.15;transform:scale(.7)}
+  50%{opacity:.95;transform:scale(1.15)}
+}
+
+/* ===== 通用容器 ===== */
+.wrap{width:min(1180px,calc(100% - 44px));margin:0 auto}
+section{position:relative;padding:96px 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+h2{
+  font-size:clamp(26px,3.4vw,42px);
+  line-height:1.32;font-weight:800;letter-spacing:.02em;margin-bottom:16px;
+}
+h2 em{font-style:normal;background:linear-gradient(100deg,var(--violet2),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+h3{font-size:19px;font-weight:700;margin-bottom:8px}
+p.lead{color:rgba(245,241,255,.68);font-size:16px;max-width:680px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.on{opacity:1;transform:none}
+
+/* ===== 顶部导航 ===== */
+header{
+  position:sticky;top:0;z-index:60;
+  backdrop-filter:blur(16px);
+  background:rgba(8,11,34,.62);
+  border-bottom:1px solid rgba(154,123,255,.14);
+  transition:background .4s;
+}
+header.solid{background:rgba(8,11,34,.92)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.06em}
+.logo .mark{width:38px;height:38px;flex:0 0 38px}
+.logo b{font-size:17px}
+.logo span{display:block;font-size:10px;letter-spacing:.34em;color:var(--cyan);font-weight:500}
+.navlinks{display:flex;align-items:center;gap:30px;font-size:14px;color:rgba(245,241,255,.74)}
+.navlinks a{position:relative;padding:6px 0;transition:color .3s}
+.navlinks a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:linear-gradient(90deg,var(--violet2),var(--cyan));transition:width .3s;
+}
+.navlinks a:hover{color:#fff}
+.navlinks a:hover::after{width:100%}
+.navcta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;
+  background:linear-gradient(100deg,var(--violet),var(--cyan));
+  color:#06102a;transition:transform .3s,box-shadow .3s;
+  box-shadow:0 8px 26px -10px rgba(106,75,214,.9);
+}
+.navcta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(72,224,216,.8)}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:none;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:14px}
+.burger i:nth-child(2){top:20px}
+.burger i:nth-child(3){top:26px}
+.burger.open i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open i:nth-child(2){opacity:0}
+.burger.open i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobilemenu{display:none;flex-direction:column;gap:6px;padding:10px 22px 22px;border-top:1px solid var(--line)}
+.mobilemenu a{padding:12px 4px;border-bottom:1px dashed rgba(154,123,255,.16);font-size:15px}
+.mobilemenu.show{display:flex}
+
+/* ===== 首屏 ===== */
+.hero{padding:78px 0 88px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 9px;
+  border:1px solid var(--line);border-radius:999px;font-size:12px;
+  color:rgba(245,241,255,.8);background:rgba(154,123,255,.07);margin-bottom:26px;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1{
+  font-size:clamp(40px,6.2vw,74px);line-height:1.08;font-weight:900;
+  letter-spacing:.02em;margin-bottom:22px;
+}
+h1 .grad{background:linear-gradient(100deg,#fff 6%,var(--violet2) 48%,var(--cyan) 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:17px;color:rgba(245,241,255,.72);max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;
+  font-size:15px;font-weight:700;transition:.35s;cursor:pointer;border:none;
+}
+.btn-primary{background:linear-gradient(100deg,var(--violet),var(--cyan));color:#06102a;box-shadow:0 16px 40px -14px rgba(106,75,214,.95)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 50px -16px rgba(72,224,216,.85)}
+.btn-ghost{border:1px solid var(--line);color:var(--cream);background:rgba(154,123,255,.06)}
+.btn-ghost:hover{background:rgba(154,123,255,.16);transform:translateY(-3px)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:34px}
+.hero-stats div b{display:block;font-size:29px;font-weight:900;background:linear-gradient(100deg,#fff,var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+.hero-stats div span{font-size:12px;letter-spacing:.14em;color:rgba(245,241,255,.55)}
+
+/* 星空果冻视觉 */
+.orb-wrap{position:relative;aspect-ratio:1/1;display:grid;place-items:center}
+.orb-ring{position:absolute;inset:0;border:1px dashed rgba(154,123,255,.28);border-radius:50%;animation:spin 46s linear infinite}
+.orb-ring.two{inset:9%;border-style:solid;border-color:rgba(72,224,216,.2);animation-duration:32s;animation-direction:reverse}
+.orb-ring.three{inset:19%;border-color:rgba(255,123,176,.18);animation-duration:24s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb-sat{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan);top:-5px;left:50%}
+.orb-ring.two .orb-sat{background:var(--pink);box-shadow:0 0 16px var(--pink);top:auto;bottom:-5px}
+.orb{position:relative;width:76%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;
+  background:
+    radial-gradient(circle at 32% 26%,rgba(255,255,255,.9),transparent 26%),
+    radial-gradient(circle at 68% 72%,rgba(72,224,216,.75),transparent 52%),
+    radial-gradient(circle at 26% 82%,rgba(255,123,176,.7),transparent 48%),
+    radial-gradient(circle at 50% 50%,#8a6bff,#4a2fbb 58%,#241a6b 100%);
+  box-shadow:0 0 90px -10px rgba(106,75,214,.9),inset 0 0 70px rgba(255,255,255,.18);
+  animation:floaty 7s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(-10px)}50%{transform:translateY(12px)}}
+.orb::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.55),transparent 34%);
+  mix-blend-mode:screen;
+}
+.orb .inner-star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.85;animation:twinkle 3s infinite}
+.orb-tag{
+  position:absolute;padding:9px 16px;border-radius:999px;font-size:12px;letter-spacing:.1em;
+  background:rgba(10,14,42,.82);border:1px solid var(--line);backdrop-filter:blur(8px);
+  box-shadow:var(--shadow);white-space:nowrap;
+}
+.orb-tag.t1{top:6%;left:-2%;color:var(--cyan)}
+.orb-tag.t2{bottom:14%;right:-4%;color:var(--pink)}
+.orb-tag.t3{bottom:-2%;left:12%;color:var(--gold)}
+.orb-tag b{display:block;font-size:11px;color:rgba(245,241,255,.5);letter-spacing:.18em;font-weight:500}
+
+/* ===== 数据带 ===== */
+.strip{border-block:1px solid var(--line);background:rgba(18,26,68,.42);padding:0}
+.strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.strip-inner div{padding:34px 22px;border-right:1px solid rgba(154,123,255,.12);text-align:center}
+.strip-inner div:last-child{border-right:none}
+.strip-inner b{display:block;font-size:34px;font-weight:900;background:linear-gradient(100deg,var(--cyan),var(--violet2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+.strip-inner span{font-size:13px;color:rgba(245,241,255,.58);letter-spacing:.08em}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+.about-visual{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,rgba(106,75,214,.22),rgba(10,14,42,.6));aspect-ratio:4/3.4}
+.about-visual svg{width:100%;height:100%}
+.about-copy p{color:rgba(245,241,255,.72);margin-bottom:18px;font-size:15.5px}
+.about-points{display:grid;gap:16px;margin-top:28px}
+.about-points li{display:flex;gap:14px;align-items:flex-start;font-size:14.5px;color:rgba(245,241,255,.8)}
+.about-points li i{flex:0 0 24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-style:normal;font-weight:700;color:#06102a;background:linear-gradient(140deg,var(--cyan),var(--violet2));margin-top:3px}
+
+/* ===== 产品 ===== */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:52px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{
+  position:relative;border-radius:var(--r);padding:30px 26px 28px;
+  border:1px solid var(--line);background:linear-gradient(170deg,rgba(27,39,97,.62),rgba(10,14,42,.72));
+  transition:transform .45s cubic-bezier(.2,.7,.3,1),border-color .45s,box-shadow .45s;
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:-1px;border-radius:var(--r);padding:1px;
+  background:linear-gradient(140deg,rgba(154,123,255,.7),transparent 46%,rgba(72,224,216,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .45s;pointer-events:none;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(106,75,214,.9)}
+.card:hover::before{opacity:1}
+.card .icon{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;margin-bottom:20px;background:rgba(106,75,214,.18);border:1px solid var(--line)}
+.card .icon svg{width:30px;height:30px}
+.card p{font-size:14px;color:rgba(245,241,255,.66);margin-bottom:16px}
+.card .tags{display:flex;flex-wrap:wrap;gap:8px}
+.card .tags span{font-size:11.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--line2);color:var(--cyan);background:rgba(72,224,216,.06)}
+.card .num{position:absolute;right:22px;top:18px;font-size:40px;font-weight:900;color:rgba(154,123,255,.13);letter-spacing:-.04em}
+
+/* ===== 工艺 ===== */
+.craft{background:linear-gradient(180deg,rgba(18,26,68,.5),transparent)}
+.craft-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:20px;position:relative}
+.craft-flow::before{content:"";position:absolute;top:26px;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--violet2),var(--cyan),transparent);opacity:.5}
+.step{text-align:center;padding:0 14px;position:relative}
+.step b{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 20px;border-radius:50%;font-size:15px;font-weight:800;color:var(--cyan);background:rgba(10,14,42,.95);border:1px solid var(--line);position:relative;z-index:2;box-shadow:0 0 28px -6px rgba(72,224,216,.45)}
+.step h4{font-size:16px;margin-bottom:8px}
+.step p{font-size:13px;color:rgba(245,241,255,.6);line-height:1.7}
+
+/* ===== 案例 ===== */
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.case{
+  position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  padding:38px 34px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;
+  transition:transform .45s,border-color .45s;isolation:isolate;
+}
+.case:hover{transform:translateY(-6px);border-color:rgba(72,224,216,.5)}
+.case .bgart{position:absolute;inset:0;z-index:-1;opacity:.62}
+.case .bgart svg{width:100%;height:100%}
+.case .kicker{font-size:11.5px;letter-spacing:.24em;color:var(--cyan);margin-bottom:10px}
+.case h3{font-size:22px}
+.case p{font-size:13.5px;color:rgba(245,241,255,.7);max-width:400px}
+.case .meta{margin-top:18px;display:flex;gap:22px;font-size:12px;color:rgba(245,241,255,.5)}
+.case .meta b{color:var(--violet2);font-weight:700}
+
+/* ===== 评价 ===== */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{
+  border-radius:var(--r);padding:30px 26px;border:1px solid var(--line);
+  background:linear-gradient(170deg,rgba(27,39,97,.5),rgba(10,14,42,.7));
+  display:flex;flex-direction:column;gap:18px;
+}
+.quote .stars5{color:var(--gold);letter-spacing:3px;font-size:14px}
+.quote p{font-size:14.5px;color:rgba(245,241,255,.82);flex:1}
+.quote .who{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(245,241,255,.62)}
+.quote .who i{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:14px;color:#06102a;background:linear-gradient(140deg,var(--cyan),var(--violet2))}
+.quote .who b{display:block;color:#fff;font-size:13.5px}
+
+/* ===== 问答 ===== */
+.faq{display:grid;gap:14px;max-width:880px;margin:0 auto}
+.faq details{
+  border:1px solid var(--line);border-radius:16px;padding:20px 24px;
+  background:rgba(18,26,68,.42);transition:border-color .3s,background .3s;
+}
+.faq details[open]{border-color:rgba(72,224,216,.45);background:rgba(27,39,97,.5)}
+.faq summary{cursor:pointer;font-weight:700;font-size:15.5px;display:flex;justify-content:space-between;gap:16px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--cyan);font-size:20px;line-height:1;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin-top:14px;font-size:14px;color:rgba(245,241,255,.66)}
+
+/* ===== 联系 ===== */
+.contact-wrap{
+  border-radius:28px;border:1px solid var(--line);padding:56px 48px;
+  background:
+    radial-gradient(ellipse 60% 100% at 100% 0%,rgba(106,75,214,.34),transparent 65%),
+    radial-gradient(ellipse 60% 100% at 0% 100%,rgba(72,224,216,.18),transparent 65%),
+    linear-gradient(160deg,rgba(27,39,97,.8),rgba(10,14,42,.92));
+  box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.contact-info li{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed rgba(154,123,255,.18);font-size:14.5px;color:rgba(245,241,255,.78);align-items:flex-start}
+.contact-info li:last-child{border-bottom:none}
+.contact-info li span:first-child{flex:0 0 22px;color:var(--cyan)}
+form{display:grid;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea,select{
+  width:100%;padding:14px 16px;border-radius:12px;font-size:14px;font-family:inherit;
+  background:rgba(10,14,42,.7);border:1px solid var(--line);color:var(--cream);outline:none;transition:border-color .3s,box-shadow .3s;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(72,224,216,.14)}
+textarea{resize:vertical;min-height:104px}
+label{font-size:12px;letter-spacing:.1em;color:rgba(245,241,255,.5);margin-bottom:6px;display:block}
+.form-note{font-size:12px;color:rgba(245,241,255,.45)}
+.form-msg{font-size:13px;color:var(--cyan);min-height:18px}
+
+/* ===== 页脚 ===== */
+footer{border-top:1px solid var(--line);padding:56px 0 30px;background:rgba(7,10,30,.7)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+.foot-grid h5{font-size:13px;letter-spacing:.2em;color:rgba(245,241,255,.46);margin-bottom:16px;font-weight:600}
+.foot-grid ul li{margin-bottom:10px;font-size:13.5px;color:rgba(245,241,255,.66)}
+.foot-grid ul li a:hover{color:var(--cyan)}
+.foot-brand p{font-size:13.5px;color:rgba(245,241,255,.6);max-width:300px;margin-top:16px}
+.foot-bottom{border-top:1px solid rgba(154,123,255,.14);padding-top:24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:rgba(245,241,255,.42)}
+
+/* ===== 响应式 ===== */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .orb-wrap{max-width:420px;margin:0 auto;width:100%}
+  .about-grid{grid-template-columns:1fr;gap:38px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .quotes{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr;padding:40px 28px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .craft-flow{grid-template-columns:repeat(2,1fr);row-gap:38px}
+  .craft-flow::before{display:none}
+}
+@media(max-width:760px){
+  .navlinks,.navcta{display:none}
+  .burger{display:block}
+  section{padding:70px 0}
+  .strip-inner{grid-template-columns:repeat(2,1fr)}
+  .strip-inner div:nth-child(2){border-right:none}
+  .strip-inner div:nth-child(1),.strip-inner div:nth-child(2){border-bottom:1px solid rgba(154,123,255,.12)}
+  .cards{grid-template-columns:1fr}
+  .cases{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .hero-stats{gap:22px}
+  .contact-wrap{padding:32px 20px;border-radius:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="skybg"></div>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- ===== 导航 ===== -->
+<header id="siteHeader">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="天美星空果冻制品厂首页">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="64" y2="64">
+            <stop stop-color="#9a7bff"/><stop offset="1" stop-color="#48e0d8"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="29" stroke="url(#lg1)" stroke-width="1.6" opacity=".7"/>
+        <path d="M32 15l4.8 12.2L49 32l-12.2 4.8L32 49l-4.8-12.2L15 32l12.2-4.8z" fill="url(#lg1)"/>
+        <circle cx="48" cy="17" r="2.4" fill="#ffd479"/>
+        <circle cx="16" cy="46" r="1.8" fill="#ff7bb0"/>
+      </svg>
+      <span class="logo-text">
+        <b>天美星空</b>
+        <span>TIANMEI STARFIELD</span>
+      </span>
+    </a>
+    <nav class="navlinks" aria-label="主导航">
+      <a href="#about">品牌故事</a>
+      <a href="#products">产品矩阵</a>
+      <a href="#craft">生产工艺</a>
+      <a href="#cases">合作案例</a>
+      <a href="#voice">客户之声</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="navcta" href="#contact">索取样品</a>
+    <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+  <div class="mobilemenu" id="mobileMenu">
+    <a href="#about">品牌故事</a>
+    <a href="#products">产品矩阵</a>
+    <a href="#craft">生产工艺</a>
+    <a href="#cases">合作案例</a>
+    <a href="#voice">客户之声</a>
+    <a href="#faq">常见问题</a>
+    <a href="#contact">索取样品</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== 首屏 ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="hero-badge"><span class="dot"></span>果冻制品全案研发 · 天美星空</div>
+      <h1><span class="grad">天美星空</span>果冻制品厂</h1>
+      <p class="sub">把一整片洁净的夜空，凝进一枚可食用的果冻里。天美星空深耕果冻制品研发与智造二十余年，以食品工艺还原星体的通透与光感，为商超、餐饮、电商与定制品牌提供从概念到量产的一站式方案。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#products">
+          探索产品矩阵
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">预约工厂参观</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>21</b><span>年专注果冻研发</span></div>
+        <div><b>6</b><span>条自动化生产线</span></div>
+        <div><b>380+</b><span>合作品牌客户</span></div>
+      </div>
+    </div>
+
+    <div class="orb-wrap reveal" aria-hidden="true">
+      <div class="orb-ring">
+        <span class="orb-sat"></span>
+      </div>
+      <div class="orb-ring two">
+        <span class="orb-sat"></span>
+      </div>
+      <div class="orb-ring three"></div>
+      <div class="orb">
+        <i class="inner-star" style="top:18%;left:64%"></i>
+        <i class="inner-star" style="top:38%;left:24%;animation-delay:1s"></i>
+        <i class="inner-star" style="top:72%;left:58%;animation-delay:.5s"></i>
+        <i class="inner-star" style="top:56%;left:76%;animation-delay:1.6s"></i>
+        <i class="inner-star" style="top:82%;left:32%;animation-delay:2.1s"></i>
+        <i class="inner-star" style="top:26%;left:44%;animation-delay:1.3s"></i>
+      </div>
+      <div class="orb-tag t1"><b>STARFIELD BASE</b>星野基底</div>
+      <div class="orb-tag t2"><b>CRYSTAL 99%</b>通透度</div>
+      <div class="orb-tag t3"><b>SHELF LIFE</b>12 个月常温锁鲜</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 数据带 ===== -->
+<section class="strip" aria-label="工厂核心数据">
+  <div class="wrap strip-inner">
+    <div><b>26,000㎡</b><span>洁净生产基地</span></div>
+    <div><b>10万级</b><span>无菌灌装车间</span></div>
+    <div><b>45天</b><span>新品打样周期</span></div>
+    <div><b>100%</b><span>批次可追溯</span></div>
+  </div>
+</section>
+
+<!-- ===== 关于 ===== -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <svg viewBox="0 0 480 400" fill="none" role="img" aria-label="天美星空果冻制品厂生产线示意插画">
+        <defs>
+          <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#6a4bd6"/><stop offset="1" stop-color="#48e0d8"/>
+          </linearGradient>
+          <linearGradient id="gB" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="#9a7bff" stop-opacity=".85"/><stop offset="1" stop-color="#ff7bb0" stop-opacity=".25"/>
+          </linearGradient>
+          <radialGradient id="gC" cx=".35" cy=".3" r=".8">
+            <stop stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#9a7bff" stop-opacity=".55"/><stop offset="1" stop-color="#241a6b" stop-opacity=".1"/>
+          </radialGradient>
+        </defs>
+        <rect width="480" height="400" fill="none"/>
+        <g opacity=".9">
+          <circle cx="360" cy="96" r="54" fill="url(#gC)"/>
+          <circle cx="360" cy="96" r="54" stroke="url(#gA)" stroke-opacity=".55"/>
+          <circle cx="120" cy="70" r="26" fill="url(#gC)" opacity=".7"/>
+          <circle cx="72" cy="170" r="14" fill="url(#gC)" opacity=".5"/>
+        </g>
+        <g stroke="url(#gA)" stroke-opacity=".5">
+          <path d="M40 300h400"/>
+          <path d="M60 300v-56h96v56" stroke-linejoin="round"/>
+          <path d="M176 300v-84h96v84" stroke-linejoin="round"/>
+          <path d="M292 300v-112h96v112" stroke-linejoin="round"/>
+        </g>
+        <g fill="url(#gB)">
+          <rect x="74" y="256" width="24" height="20" rx="5"/>
+          <rect x="108" y="264" width="24" height="12" rx="5" opacity=".7"/>
+          <rect x="190" y="230" width="28" height="24" rx="6"/>
+          <rect x="228" y="242" width="28" height="12" rx="6" opacity=".7"/>
+          <rect x="306" y="200" width="30" height="26" rx="7"/>
+          <rect x="346" y="214" width="30" height="12" rx="6" opacity=".7"/>
+        </g>
+        <g stroke="url(#gA)" stroke-opacity=".8" stroke-width="2">
+          <path d="M156 244h20M272 216h20"/>
+        </g>
+        <g fill="#fff" opacity=".75">
+          <circle cx="86" cy="130" r="2"/><circle cx="200" cy="96" r="2.4"/><circle cx="260" cy="150" r="1.8"/>
+          <circle cx="420" cy="196" r="2.2"/><circle cx="150" cy="190" r="1.6"/><circle cx="330" cy="60" r="2"/>
+        </g>
+      </svg>
+    </div>
+    <div class="about-copy reveal">
+      <div class="eyebrow">BRAND STORY</div>
+      <h2>从一粒琼脂开始，<em>造一片可食的夜空</em></h2>
+      <p>天美星空果冻制品厂创立于 2003 年，最初只是南方小城里一间 12 人的果冻作坊。我们相信，果冻不该只是甜，它应该有质地、有光感、有记忆点。于是我们把星空作为长期母题：用不同折光率的胶体复配，让果冻在灯光下呈现星云般的层次。</p>
+      <p>今天的天美星空，已成长为集配方研发、模具设计、自动化灌装、常温锁鲜与柔性定制于一体的果冻制品工厂，产品覆盖星空果冻、水晶果冻、果汁果冻、功能性果冻、创意造型果冻五大方向，服务国内外商超连锁、连锁茶饮、餐饮集团与电商品牌。</p>
+      <ul class="about-points">
+        <li><i>✓</i>自主配方实验室，支持低糖、零脂、高纤等健康化方向开发</li>
+        <li><i>✓</i>从外观设计到口感质构的一体化打样，最快 45 天交付首批</li>
+        <li><i>✓</i>全流程批次追溯，原料、灌装、封口、杀菌节点全程留痕</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 产品矩阵 ===== -->
+<section id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">PRODUCT MATRIX</div>
+        <h2>五大产品线，<em>把星空做成生意</em></h2>
+      </div>
+      <p class="lead">标准品即取即用，定制线从零共创。无论你要的是货架上的视觉冲击，还是一杯饮品里的口感惊喜，天美星空都能给出可量产的答案。</p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <span class="num">01</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="11" stroke="#48e0d8" stroke-width="1.6"/><path d="M16 7l2.2 5.6L24 16l-5.8 2.4L16 24l-2.2-5.6L8 16l5.8-3.4z" fill="#9a7bff"/></svg>
+        </div>
+        <h3>星空透镜果冻</h3>
+        <p>多层胶体复配，切开可见星云纹理。适合礼盒、伴手礼与节日限定，是货架上最容易被拿起的那一颗。</p>
+        <div class="tags"><span>多层复配</span><span>礼盒装</span><span>节日限定</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="num">02</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4l10 6v12l-10 6-10-6V10z" stroke="#48e0d8" stroke-width="1.6"/><path d="M16 11v10M11 14l10 4M21 14l-10 4" stroke="#ff7bb0" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <h3>高透水晶果冻</h3>
+        <p>通透度可达 99%，可嵌入真实果粒、花瓣或可食用金箔。用于茶饮加料、甜品吧台与自助餐陈列。</p>
+        <div class="tags"><span>高透</span><span>茶饮加料</span><span>嵌入果粒</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="num">03</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 24V13a8 8 0 0116 0v11" stroke="#48e0d8" stroke-width="1.6" stroke-linecap="round"/><path d="M12 24v-9M20 24v-9" stroke="#ffd479" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>果汁系列果冻</h3>
+        <p>果蔬汁添加量可调，支持 NFC 果汁直投。酸甜比按区域口味校准，适配儿童零食与家庭分享装。</p>
+        <div class="tags"><span>NFC 果汁</span><span>儿童零食</span><span>分享装</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="num">04</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26c6-14 14-14 20-20" stroke="#9a7bff" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="20" r="3" stroke="#48e0d8" stroke-width="1.5"/><circle cx="22" cy="10" r="3" stroke="#ff7bb0" stroke-width="1.5"/></svg>
+        </div>
+        <h3>功能性果冻</h3>
+        <p>面向轻负担人群，可复配膳食纤维、胶原蛋白肽、益生元等原料，口感与功能兼得，不牺牲食用体验。</p>
+        <div class="tags"><span>低糖</span><span>高纤</span><span>益生元</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="num">05</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="5" y="10" width="22" height="15" rx="4" stroke="#48e0d8" stroke-width="1.6"/><path d="M11 10l2-4h6l2 4" stroke="#9a7bff" stroke-width="1.6" stroke-linejoin="round"/><circle cx="16" cy="17.5" r="4" stroke="#ffd479" stroke-width="1.5"/></svg>
+        </div>
+        <h3>创意造型定制</h3>
+        <p>模具自主开发生，支持星球、动物、IP 联名等造型。从图纸到脱模一站完成，最小起订量友好。</p>
+        <div class="tags"><span>开模定制</span><span>IP 联名</span><span>小批起订</span></div>
+      </article>
+
+      <article class="card reveal">
+        <span class="num">06</span>
+        <div class="icon">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 5l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" stroke="#ffd479" stroke-width="1.5" stroke-linejoin="round"/><circle cx="25" cy="25" r="2" fill="#48e0d8"/></svg>
+        </div>
+        <h3>白牌与自有品牌</h3>
+        <p>为商超与电商平台提供 OEM/ODM 服务，配方、包装、标签合规一并负责，让品牌方专注渠道与内容。</p>
+        <div class="tags"><span>OEM</span><span>ODM</span><span>标签合规</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 生产工艺 ===== -->
+<section id="craft" class="craft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">CRAFT &amp; QUALITY</div>
+        <h2>四道关卡，<em>让通透不只停留在照片里</em></h2>
+      </div>
+      <p class="lead">果冻是最诚实的食品之一，任何一步偷懒都会写在质感上。天美星空把工艺拆成四个可被检验的环节。</p>
+    </div>
+
+    <div class="craft-flow reveal">
+      <div class="step">
+        <b>01</b>
+        <h4>配液与脱气</h4>
+        <p>恒温溶解后真空脱气，去除微小气泡，这是果冻透亮的前提，也是很多工厂省掉的步骤。</p>
+      </div>
+      <div class="step">
+        <b>02</b>
+        <h4>多层灌装</h4>
+        <p>按色层与密度分批灌装，层与层之间控制温差与凝固窗口，形成自然过渡的星云纹理。</p>
+      </div>
+      <div class="step">
+        <b>03</b>
+        <h4>巴氏杀菌</h4>
+        <p>精准控温控时杀菌，兼顾食品安全与胶体结构稳定，避免高温导致的口感发脆或出水。</p>
+      </div>
+      <div class="step">
+        <b>04</b>
+        <h4>锁鲜与追溯</h4>
+        <p>无菌冷却后密封包装，每批次赋码，原料来源、生产参数、质检结果一键可查。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 合作案例 ===== -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">COOPERATION</div>
+        <h2>被看见的<em>星空与生意</em></h2>
+      </div>
+      <p class="lead">我们不只卖果冻，也参与客户的产品定义。以下是几个具有代表性的合作方向。</p>
+    </div>
+
+    <div class="cases">
+      <article class="case reveal">
+        <div class="bgart" aria-hidden="true">
+          <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="cg1" cx=".8" cy=".1" r="1">
+                <stop stop-color="#6a4bd6" stop-opacity=".9"/><stop offset="1" stop-color="#0a0e2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="600" height="320" fill="url(#cg1)"/>
+            <circle cx="500" cy="40" r="70" fill="#48e0d8" opacity=".14"/>
+            <circle cx="430" cy="220" r="90" fill="#ff7bb0" opacity=".1"/>
+          </svg>
+        </div>
+        <div class="kicker">CASE / 连锁茶饮</div>
+        <h3>「银河啵啵」年度加料单品</h3>
+        <p>为全国连锁茶饮品牌开发双色星云果冻，兼具出片效果与吸管适口性，上市当季成为门店加购率最高的配料之一。</p>
+        <div class="meta"><span>配方周期 <b>38 天</b></span><span>首单量 <b>120 万杯份</b></span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="bgart" aria-hidden="true">
+          <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="cg2" cx=".15" cy=".85" r="1">
+                <stop stop-color="#48e0d8" stop-opacity=".5"/><stop offset="1" stop-color="#0a0e2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="600" height="320" fill="url(#cg2)"/>
+            <circle cx="120" cy="60" r="60" fill="#9a7bff" opacity=".16"/>
+          </svg>
+        </div>
+        <div class="kicker">CASE / 商超零售</div>
+        <h3>节庆星空礼盒定制</h3>
+        <p>围绕中秋与新年档期，设计八格星空造型果冻礼盒，包装与内托同步开发，帮助渠道在节庆陈列中形成差异。</p>
+        <div class="meta"><span>SKU <b>3 款</b></span><span>节庆复购 <b>连续 4 年</b></span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="bgart" aria-hidden="true">
+          <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="cg3" cx=".5" cy=".1" r="1">
+                <stop stop-color="#ffd479" stop-opacity=".32"/><stop offset="1" stop-color="#0a0e2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="600" height="320" fill="url(#cg3)"/>
+            <circle cx="300" cy="40" r="80" fill="#ff7bb0" opacity=".12"/>
+          </svg>
+        </div>
+        <div class="kicker">CASE / 电商品牌</div>
+        <h3>轻负担功能果冻 ODM</h3>
+        <p>为内容型电商品牌提供低糖高纤果冻从配方到标签的全套方案，配合小步快跑的上新节奏，多批次快速迭代。</p>
+        <div class="meta"><span>上新节奏 <b>季度迭代</b></span><span>标签合规 <b>全程协助</b></span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="bgart" aria-hidden="true">
+          <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="cg4" cx=".9" cy=".8" r="1">
+                <stop stop-color="#9a7bff" stop-opacity=".55"/><stop offset="1" stop-color="#0a0e2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="600" height="320" fill="url(#cg4)"/>
+            <circle cx="120" cy="240" r="70" fill="#48e0d8" opacity=".12"/>
+          </svg>
+        </div>
+        <div class="kicker">CASE / 主题空间</div>
+        <h3>星空主题餐厅甜品配套</h3>
+        <p>为沉浸式主题餐厅设计星球造型果冻甜品，含出品摆盘与模具方案，让甜品本身成为空间叙事的一部分。</p>
+        <div class="meta"><span>造型开发 <b>12 套</b></span><span>门店覆盖 <b>9 城</b></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 客户之声 ===== -->
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">VOICES</div>
+        <h2>长期合作者<em>怎么说</em></h2>
+      </div>
+    </div>
+    <div class="quotes">
+      <article class="quote reveal">
+        <div class="stars5">★★★★★</div>
+        <p>「我们最看重的是稳定性。天美星空的批次一致性做得很扎实，同一款果冻连续几个月进货，透度和口感都没有明显漂移。」</p>
+        <div class="who"><i>陈</i><div><b>陈经理</b>连锁茶饮品牌 供应链负责人</div></div>
+      </article>
+      <article class="quote reveal">
+        <div class="stars5">★★★★★</div>
+        <p>「从画图到拿到第一批样品，四十多天，中间改了三次造型，沟通一直很顺。对我们这种小体量品牌来说非常友好。」</p>
+        <div class="who"><i>林</i><div><b>林女士</b>独立甜品品牌 主理人</div></div>
+      </article>
+      <article class="quote reveal">
+        <div class="stars5">★★★★★</div>
+        <p>「节庆礼盒是我们每年最头疼的品类，他们连内托和外箱一起给方案，让我们少对接了两三家供应商，省心很多。」</p>
+        <div class="who"><i>周</i><div><b>周先生</b>区域商超 采购总监</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 常见问题 ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2>关于合作，<em>你可能想知道</em></h2>
+    </div>
+    <div class="faq">
+      <details class="reveal" open>
+        <summary>定制果冻的最小起订量是多少？</summary>
+        <p>标准配方产品通常 500 箱起订；需要重新开模的造型类产品，视模具复杂度建议 1000 箱起。若为小批量试销，我们也提供打样与小批试产服务，具体可与业务确认。</p>
+      </details>
+      <details class="reveal">
+        <summary>从沟通需求到拿到首批货，大概需要多久？</summary>
+        <p>已有配方的产品，确认包装后约 15—20 天可交付；需要新配方或新模具的项目，打样周期约 30—45 天，量产后按订单排期。节庆类产品建议至少提前两个月启动。</p>
+      </details>
+      <details class="reveal">
+        <summary>能否做低糖、零脂或添加膳食纤维的配方？</summary>
+        <p>可以。我们的配方实验室长期在健康化方向做储备，可根据目标人群调整甜味体系与质构，尽量在减糖的同时保持果冻应有的弹性与风味饱满度。</p>
+      </details>
+      <details class="reveal">
+        <summary>星空纹理是怎么做出来的，会不会很不稳定？</summary>
+        <p>纹理来自不同密度胶体的分层灌装与温差控制，属于可量产的工艺而非手工特例。我们会在打样阶段确定参数并锁定标准，量产时按同一套工艺执行，确保批次间视觉表现一致。</p>
+      </details>
+      <details class="reveal">
+        <summary>是否提供 OEM / ODM 与标签合规支持？</summary>
+        <p>提供。包括配方开发、包装结构建议、营养成分表与标签文案审核协助。品牌方只需确认品牌与渠道策略，其余环节可由天美星空承接或配合完成。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系 ===== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap reveal">
+      <div>
+        <div class="eyebrow">CONTACT</div>
+        <h2 style="margin-bottom:14px">把想法寄给星空</h2>
+        <p style="color:rgba(245,241,255,.7);font-size:15px;margin-bottom:22px">告诉我们你的渠道、目标人群与想要的效果，我们会在一个工作日内回复，并附上可行的产品建议。</p>
+        <ul class="contact-info">
+          <li><span>☏</span><span>业务咨询：400-886-2177（工作日 9:00—18:00）</span></li>
+          <li><span>✉</span><span>合作邮箱：hello@tianmeistarfield.com</span></li>
+          <li><span>⚑</span><span>工厂地址：天美星空果冻制品产业园 · 研发中心 3 号楼</span></li>
+          <li><span>◷</span><span>样品寄送：支持全国到付样品，每款最多 2 份</span></li>
+        </ul>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="frow">
+          <div><label for="fname">称呼</label><input id="fname" name="name" type="text" placeholder="怎么称呼您" required></div>
+          <div><label for="fphone">联系电话</label><input id="fphone" name="phone" type="tel" placeholder="方便联系的号码" required></div>
+        </div>
+        <div><label for="fchannel">渠道类型</label>
+          <select id="fchannel" name="channel">
+            <option>商超 / 便利店</option>
+            <option>连锁茶饮 / 咖啡</option>
+            <option>餐饮 / 甜品店</option>
+            <option>电商 / 内容品牌</option>
+            <option>礼赠 / 定制</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div><label for="fmsg">需求描述</label><textarea id="fmsg" name="msg" placeholder="例如：想做一款星球造型的水晶果冻，用于中秋礼盒，预算与数量大致是……"></textarea></div>
+        <button class="btn btn-primary" type="submit" style="justify-content:center">提交需求</button>
+        <div class="form-msg" id="formMsg" role="status"></div>
+        <p class="form-note">提交即表示同意我们仅将信息用于业务沟通，不会用于其他用途。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo" style="margin-bottom:4px">
+          <svg class="mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="29" stroke="url(#lg1)" stroke-width="1.6" opacity=".6"/>
+            <path d="M32 15l4.8 12.2L49 32l-12.2 4.8L32 49l-4.8-12.2L15 32l12.2-4.8z" fill="url(#lg1)"/>
+          </svg>
+          <span class="logo-text"><b>天美星空</b><span>TIANMEI STARFIELD</span></span>
+        </div>
+        <p>天美星空果冻制品厂，以食品工艺还原星体的通透与光感，为渠道与品牌提供可量产的果冻解决方案。</p>
+      </div>
+      <div>
+        <h5>产品线</h5>
+        <ul>
+          <li><a href="#products">星空透镜果冻</a></li>
+          <li><a href="#products">高透水晶果冻</a></li>
+          <li><a href="#products">果汁系列果冻</a></li>
+          <li><a href="#products">功能性果冻</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>合作</h5>
+        <ul>
+          <li><a href="#cases">合作案例</a></li>
+          <li><a href="#craft">生产工艺</a></li>
+          <li><a href="#contact">索取样品</a></li>
+          <li><a href="#contact">预约参观</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于</h5>
+        <ul>
+          <li><a href="#about">品牌故事</a></li>
+          <li><a href="#voice">客户之声</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#contact">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> 天美星空果冻制品厂 · 保留所有权利</span>
+      <span>食品生产许可 · 批次可追溯 · 常温锁鲜</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 星空点阵 */
+  var starLayer = document.getElementById('stars');
+  if (starLayer) {
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 90; i++) {
+      var s = document.createElement('i');
+      var size = Math.random() * 2.2 + 0.6;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.left = (Math.random() * 100).toFixed(2) + '%';
+      s.style.top = (Math.random() * 100).toFixed(2) + '%';
+      s.style.animationDuration = (2.4 + Math.random() * 4).toFixed(2) + 's';
+      s.style.animationDelay = (Math.random() * 4).toFixed(2) + 's';
+      s.style.opacity = (0.25 + Math.random() * 0.6).toFixed(2);
+      frag.appendChild(s);
+    }
+    starLayer.appendChild(frag);
+  }
+
+  /* 导航滚动状态 */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){
+    if (window.scrollY > 24) { header.classList.add('solid'); }
+    else { header.classList.remove('solid'); }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 移动菜单 */
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function(){
+      var open = burger.classList.toggle('open');
+      mobileMenu.classList.toggle('show', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('show');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', '打开菜单');
+      });
+    });
+  }
+
+  /* 滚动显现 */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('on');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  /* 数字计数 */
+  var counted = false;
+  var statEls = document.querySelectorAll('.strip-inner b, .hero-stats b');
+  var animateNumbers = function(){
+    if (counted) return;
+    counted = true;
+    statEls.forEach(function(el){
+      var raw = el.textContent.trim();
+      var match = raw.match(/^([\d.]+)(.*)$/);
+      if (!match) return;
+      var target = parseFloat(match[1]);
+      var suffix = match[2];
+      var isFloat = match[1].indexOf('.') > -1;
+      var start = null;
+      var dur = 1300;
+      var step = function(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = target * eased;
+        el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  };
+  var strip = document.querySelector('.strip');
+  if (strip && 'IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { animateNumbers(); io2.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+    io2.observe(strip);
+  } else {
+    animateNumbers();
+  }
+
+  /* 表单 */
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.querySelector('#fname').value.trim();
+      var phone = form.querySelector('#fphone').value.trim();
+      if (!name || !phone) {
+        msg.textContent = '请至少填写称呼与联系电话，便于我们回复您。';
+        msg.style.color = '#ff7bb0';
+        return;
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      var origin = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = '提交中…';
+      setTimeout(function(){
+        btn.disabled = false;
+        btn.textContent = origin;
+        msg.style.color = '#48e0d8';
+        msg.textContent = '已收到，' + name + '。我们会在一个工作日内与您联系。';
+        form.reset();
+      }, 900);
+    });
+  }
+
+  /* 年份 */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* 平滑锚点偏移（兼容固定导航） */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id === '#' || id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.scrollY - 78;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      history.replaceState(null, '', id);
+    });
+  });
+})();
+</script>
+</body>
+  </html>
